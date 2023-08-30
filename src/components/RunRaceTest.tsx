@@ -4,15 +4,15 @@ import { logCallTest } from '../util'
 
 const RunRaceTest = () => {
     const ARGS = [
-        {
-            players: ['mumu', 'soe', 'poe', 'kai', 'mine'],
-            callings: ['kai', 'kai', 'mine', 'mine'],
-        },
+        [
+            ['mumu', 'soe', 'poe', 'kai', 'mine'],
+            ['kai', 'kai', 'mine', 'mine'],
+        ],
     ]
 
-    const results = ARGS.map((arg) => {
+    const results = ARGS.map(arg => {
         const start = performance.now()
-        const answer = runRace(arg.players, arg.callings)
+        const answer = runRace(...arg)
         const end = performance.now()
 
         logCallTest(arg, end - start, answer)
